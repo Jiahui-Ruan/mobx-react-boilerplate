@@ -1,16 +1,13 @@
 import { observable } from 'mobx';
-
 class AppState {
-  @observable timer = 0;
+  @observable counter = 0;
 
-  constructor() {
-    setInterval(() => {
-      this.timer += 1;
-    }, 1000);
+  Increment() {
+    this.counter++;
   }
 
-  resetTimer() {
-    this.timer = 0;
+  Decrement() {
+    this.counter--;
   }
 }
 
