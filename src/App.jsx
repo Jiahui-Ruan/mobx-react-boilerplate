@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import Devtools from 'mobx-react-devtools';
 
-@observer
+import Counter from './Counter';
+import counterState from './CounterState';
+import Temperature from './Temperature';
+import temps from './TemperatureState';
 class App extends Component {
   render() {
     return (
       <div>
-        <div>Counter: {this.props.appState.counter}</div>
-        <button onClick={this.handleInc}> + </button>
-        <button onClick={this.handleDec}> - </button>
+        <Counter counterState={counterState} />
+        <Temperature temperatures={temps} />
+        <Devtools />
       </div>
     )
-  }
-
-  handleInc = () => {
-    this.props.appState.Increment()
-  }
-
-  handleDec = () => {
-    this.props.appState.Decrement()
   }
 }
 
