@@ -2,7 +2,7 @@ import { observable, computed, action, useStrict } from 'mobx';
 
 useStrict(true);
 
-class Temperature {
+export class TemperatureState {
     id = Math.random();
     @observable unit = 'C';
     @observable temperatureCelsius = 25;
@@ -46,11 +46,7 @@ class Temperature {
     }
 }
 
-const temps = observable([]);
-temps.push(new Temperature());
-temps.push(new Temperature());
-temps[1].unit = 'F';
-temps.push(new Temperature());
-temps[2].unit = 'K';
+const temps = observable([])
+temps.push(new TemperatureState('LA'))
 
 export default temps;
